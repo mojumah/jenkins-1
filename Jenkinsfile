@@ -20,10 +20,10 @@ pipeline {
 
         stage('terraform vars') {
             steps {
-                sh 'cp /home/ubuntu/enc/vars.tf ./jenkins/'
+                sh 'cp /home/ubuntu/enc/vars.tf ./jenkins'
             }
         }
-        
+
         stage('terraform init') {
             steps {
                 sh '/bin/terraform init ./jenkins'
