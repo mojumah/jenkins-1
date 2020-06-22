@@ -19,7 +19,7 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh '/bin/terraform init ./jenkins'
+                sh '/home/ubuntu/terraform init ./jenkins'
             }
         }
 
@@ -30,7 +30,7 @@ pipeline {
         }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins;/bin/terraform plan ./jenkins'
+                sh 'ls ./jenkins;/home/ubuntu/terraform plan ./jenkins'
             }
         }
         stage('terraform ended') {
