@@ -19,7 +19,7 @@ pipeline {
         }
         stage('terraform init') {
             steps {
-                sh '/home/ubuntu/terraform init ./jenkins'
+                sh '/bin/terraform init ./jenkins'
             }
         }
         stage('terraform plan') {
