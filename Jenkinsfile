@@ -22,9 +22,15 @@ pipeline {
                 sh '/bin/terraform init ./jenkins'
             }
         }
+
+        stage('terraform vars') {
+            steps {
+                sh 'cp /home/ubuntu/enc/vars.tf ./jenkins'
+            }
+        }
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins; sudo /home/ec2-user/terraform plan ./jenkins'
+                sh 'ls ./jenkins;/bin/terraform plan ./jenkins'
             }
         }
         stage('terraform ended') {
