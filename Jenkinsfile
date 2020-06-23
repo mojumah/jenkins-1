@@ -26,13 +26,13 @@ pipeline {
 
         stage('terraform vars') {
             steps {
-                sh 'cp /home/ubuntu/enc/vars.tf ./jenkins'
+                sh 'cp /home/ubuntu/enc/vars.tf /var/lib/jenkins/workspace/tf/jenkins-1'
             }
         }
 
         stage('terraform plan') {
             steps {
-                sh 'ls ./jenkins;/bin/terraform plan ./jenkins'
+                sh 'ls ./jenkins;/bin/terraform plan /var/lib/jenkins/workspace/tf/jenkins-1'
             }
         }
         stage('terraform ended') {
