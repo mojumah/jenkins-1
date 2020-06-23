@@ -1,7 +1,5 @@
 provider "aws" {
-  region = "eu-west-2"
-  access_key = "${var.access_key}"
-  secret_key = "${var.secret_key}"
+  region = "us-west-2"
 }
 
 data "aws_ami" "ubuntu" {
@@ -17,15 +15,14 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"]
+  owners = ["099720109477"] # Canonical
 }
 
 resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
 
-  tags {
+  tags = {
     Name = "HelloWorld"
   }
 }
-
