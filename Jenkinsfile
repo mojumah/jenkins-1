@@ -32,7 +32,7 @@ pipeline {
 
         stage('terraform plan') {
             steps {
-                sh '/bin/terraform plan /var/lib/jenkins/workspace/tf/jenkins-1'
+                sh 'terraform plan /var/lib/jenkins/workspace/tf/jenkins-1'
             }
         }
         stage('terraform ended') {
